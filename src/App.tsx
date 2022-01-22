@@ -15,12 +15,9 @@ function App() {
         konvaObj.current.drawIntro()
     }, [])
     return (
-        <div className="App">
+        <div className="App" >
             <header className="App-header" >
-                <div ref={canvasEl} style={{backgroundColor:'white'}} onClick={() => {
-                    console.log('click')
-                    konvaObj.current.progressFig5()
-                }}/>
+                <div ref={canvasEl} style={{backgroundColor:'white'}} />
 
             </header>
         </div>

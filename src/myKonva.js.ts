@@ -14,11 +14,14 @@ class MyKonva {
 
 
         this.stage = new Konva.Stage({
-            container: this.canvasID,   // id of container <div>
-            width: this.width,
-            height: this.height
-        });
-
+                container: this.canvasID,   // id of container <div>
+                width: this.width,
+                height: this.height,
+            }
+        );
+        this.stage.on('click tap', () => {
+        this.progressFig5()
+        })
 
     }
 
@@ -306,7 +309,7 @@ class Intro {
             let line = new Konva.Line({
                 points: [this.x(squareCoordsStart[index][0]), this.y(squareCoordsStart[index][1]), this.x(squareCoordsStart[index][2]), this.y(squareCoordsStart[index][3])],
                 stroke: 'black',
-                strokeWidth:2,
+                strokeWidth: 2,
             })
             group.add(line);
 
@@ -344,7 +347,7 @@ class Intro {
             let tween = new Konva.Tween({
                 node: lineGroup,
                 duration: 1,
-                opacity:0
+                opacity: 0
             });
             tween.play()
         }, 3000);
@@ -352,7 +355,7 @@ class Intro {
             let tween = new Konva.Tween({
                 node: squareGroup,
                 duration: 2,
-                opacity:0
+                opacity: 0
             });
             tween.play()
         }, 4000);
