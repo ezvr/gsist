@@ -61,103 +61,13 @@ class MyKonva {
 
     progressFig5() {
         if (this.rectAr.length !== 0) {
-            this.rectAr[0].setInternal(getRandomInt(4))
+            this.rectAr[0].updateInternal(getRandomInt(4))
 
             this.rectAr.forEach((box, index) => {
                 if (index !== 0)
                     box.updateInternal(this.rectAr[index - 1].getInternalOld())
             })
         }
-    }
-
-    convaInit() {
-        let layer = new Konva.Layer();
-        let line = new Konva.Line({
-            points: [this.x(0), this.y(0), this.x(0), this.y(10), this.x(7), this.y(10), this.x(7), this.y(0), this.x(0), this.y(0)],
-            stroke: 'black',
-            strokeWidth: 1,
-        })
-        let line2 = new Konva.Line({
-            points: [0, 0, 0, 0],
-            stroke: 'black',
-            strokeWidth: 1,
-        })
-        let line3 = new Konva.Line({
-            points: [this.x(7), this.y(0), this.x(7), this.y(0)],
-            stroke: 'black',
-            strokeWidth: 1,
-        })
-        let line4 = new Konva.Line({
-            points: [this.x(0), this.y(7), this.x(0), this.y(7)],
-            stroke: 'black',
-            strokeWidth: 1,
-        })
-        let line5 = new Konva.Line({
-            points: [this.x(0), this.y(0), this.x(7), this.y(10)],
-            stroke: 'black',
-            strokeWidth: 1,
-        })
-        let line6 = new Konva.Line({
-            points: [this.x(7), this.y(0), this.x(0), this.y(10)],
-            stroke: 'black',
-            strokeWidth: 1,
-        })
-
-        layer.add(line);
-        layer.add(line2);
-        layer.add(line3);
-        layer.add(line4);
-        layer.add(line5);
-        layer.add(line6);
-
-
-        let tween = new Konva.Tween({
-            node: line2,
-            duration: 0.35,
-            easing: Konva.Easings.EaseOut,
-            points: [this.x(0), this.y(0), this.x(7), this.y(7)],
-        });
-        let tween2 = new Konva.Tween({
-            node: line3,
-            duration: 0.35,
-            easing: Konva.Easings.EaseOut,
-            points: [this.x(7), this.y(0), this.x(0), this.y(7)],
-        });
-        let tween3 = new Konva.Tween({
-            node: line4,
-            duration: 0.35,
-            easing: Konva.Easings.EaseOut,
-            points: [this.x(0), this.y(7), this.x(7), this.y(7)],
-        });
-
-        let rect1 = new Konva.Rect({
-            x: this.x(3),
-            y: this.y(3),
-            width: this.x(1),
-            height: this.y(1),
-
-            stroke: 'white',
-            strokeWidth: 5,
-        });
-        let rect2 = new Konva.Rect({
-            x: this.x(3) - this.x(1),
-            y: this.y(3) - this.x(1),
-            width: this.x(3),
-            height: this.y(3),
-
-            stroke: 'white',
-            strokeWidth: 1,
-        });
-
-
-        this.stage.add(layer)
-
-        setTimeout(function () {
-            tween.play();
-            tween2.play()
-            tween3.play()
-        }, 2000);
-
     }
 
 }
@@ -411,7 +321,7 @@ class Intro {
     }
 
     doIntro() {
-        let lineGroup = new Konva.Group
+        let lineGroup = new Konva.Group()
         this.layer.add(lineGroup)
         let tweenArray = this.constructLines(lineGroup)
 
@@ -421,7 +331,7 @@ class Intro {
 
             }, 150 * index);
         })
-        let squareGroup = new Konva.Group
+        let squareGroup = new Konva.Group()
         this.layer.add(squareGroup)
         let squareArray = this.constructSquare(squareGroup)
         squareArray.forEach((tween, index) => {
