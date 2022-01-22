@@ -16,11 +16,11 @@ function App() {
     }, [])
     return (
         <div className="App">
-            <header className="App-header" onClick={() => {
-                console.log('click')
-                konvaObj.current.progressFig5()
-            }}>
-                <div ref={canvasEl} style={{backgroundColor:'white'}}/>
+            <header className="App-header" >
+                <div ref={canvasEl} style={{backgroundColor:'white'}} onClick={() => {
+                    console.log('click')
+                    konvaObj.current.progressFig5()
+                }}/>
 
             </header>
         </div>
