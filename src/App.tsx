@@ -1,8 +1,6 @@
 import React, {useRef, useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import MyKonva from "./myKonva.js"
-import Konva from "konva";
 
 function App() {
     const canvasEl = useRef<any>(null);
